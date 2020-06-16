@@ -8,26 +8,24 @@ const MemeGenerator = () => {
     
     useEffect(() => {
         fetch("https://api.imgflip.com/get_memes")
-        .then(res => res.json())
-        .then(res => {
-            const {memes} = res.data[0].url
-            console.log(memes)
-            setAllMemeImgs({ allMemeImgs: memes })
-        })
-        .catch(err => console.log(err))
-    }, [])
+            .then(res => res.json())
+            .then(res => {
+                const { memes } = res.data
+                setAllMemeImgs(memes)
+            })
+            .catch(err => console.error(err))
+    })
 
-    function handleChange(event) {
+    const handleChange = (event) => {
         const { name, value } = event.target
         name === "topText" ? setText({...text, topText: value}) : setText({...text, bottomText: value})
     }
     
-    function handleSubmit(event) {
+    const handleSubmit = (event) => {
         event.preventDefault()
         const randNum = Math.floor(Math.random() * allMemeImgs.length)
-        console.log("random number: " + randNum)
-        // const randMemeImg = allMemeImgs[randNum].url
-        // setRandomImg({ randomImg: randMemeImg })
+        const randMemeImg = allMemeImgs[randNum].url
+        setRandomImg(randMemeImg)
     }
     
     return (
