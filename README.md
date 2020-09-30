@@ -1,6 +1,2 @@
 # MemeGenerator
-This is a simple React Application that generates a random image and allows the user to add text to the meme image.
-
-## Updates
-
-* Added boilerplate code for the application
+This is a simple, front-end only React application that generates a random image and allows the user to add text to the image to create a meme.
